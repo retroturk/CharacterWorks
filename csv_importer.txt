@@ -1,0 +1,13 @@
+ODBC DATA SOURCE
+**Connection String**
+Driver=Microsoft Access Text Driver (*.txt, *.csv);Dbq=c:\;Extensions=csv,txt;Persist Security Info=False; 
+
+**SQL Query**
+select * from test.csv
+--------------------------------------
+XML/JSON DATA SOURCE
+**XQuery**
+let $text := file:read-text('c:\test.csv')
+let $result := csv:parse($text, map { 'separator': 'comma', 'header': true() })
+
+return $result/csv/record 
