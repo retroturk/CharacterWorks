@@ -1,0 +1,9 @@
+let $total := sum(//total_count)
+for $result at $pos in //total_count
+
+return <datarow>
+<name>{data(node-name($result/../../.))} </name>
+<value>{data($result)}</value>
+<ratio> {(round((data($result)div $total)*100))}</ratio>
+<picture>{concat((round((data($result)div $total)*100)),'.jpg')} </picture>
+</datarow> 
