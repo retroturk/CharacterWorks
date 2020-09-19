@@ -1,5 +1,5 @@
 (: a simple xquery to pull  college basketball team roster from ESPN web page :)
-(: XML Path/URL must be http://rss.cnn.com/rss/edition.rss or working any RSS :)
+(: XML Path/URL must be http://rss.cnn.com/rss/edition.rss or any working RSS :)
 
 let $team_number :=2619
 let $logo:= concat("https://a.espncdn.com/i/teamlogos/ncaa/500/",$team_number,".png")
