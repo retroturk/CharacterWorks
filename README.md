@@ -1,0 +1,3 @@
+CharacterWorks yazılımında kullanılabilecek bazı xquery kodlarını paylaşmak amacıyla bu depoyu kullanıyorum.
+sample projects klasöründe paylaştığım xquery kodlarının çalışan örneklerine ulaşabilirsiniz.
+CharacterWorks için http://www.chrworks.com sitesini ziyaret ediniz... 
