@@ -1,0 +1,13 @@
+(* CurrencyLayer API XQuery code *)
+(* XML PATH https://api.currencylayer.com/change?access_key=53fa51514745b9b84b1d50084a56cc37&source=USD&%20currencies=EUR,JPY,GBP,CNY&format=1 *)
+
+for $y in //quotes/*
+return 
+
+<datarow>
+<data>{data(name($y))}</data>
+{
+for $x in $y/*
+return element{data(name($x))} {data($x)}
+}
+</datarow>
