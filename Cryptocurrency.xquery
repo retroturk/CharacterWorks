@@ -13,4 +13,5 @@ return
 <price>{data($cell/td[4]/div/a)}</price>
 <sign>{substring-after(data($cell/td[5]/span/span/@class), 'icon-Caret-')}</sign>
 <percentage>{data($cell/td[5])}</percentage>
+<chart>{data($cell/td[10]/a/img/@src)}</chart>
 </datarow>
