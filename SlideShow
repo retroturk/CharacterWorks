@@ -1,4 +1,4 @@
-(: SlideShow from folder :)
+(* SlideShow from folder *)
 
 let $dir := file:list('C:\foldername\',false(), "*.jpg")
 for $x in $dir
