@@ -2,7 +2,7 @@
 
 let $dir := file:list('C:\foldername\',false(), "*.jpg")
 for $x in $dir
-order by ascending
+order by $x ascending
 return 
 
 <datarow>
