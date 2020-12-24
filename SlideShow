@@ -1,0 +1,10 @@
+(: SlideShow from folder :)
+
+let $dir := file:list('C:\foldername\',false(), "*.jpg")
+for $x in $dir
+order by ascending
+return <datarow>
+
+<image> {data($x)} </image>
+<imagename> {data(substring-before($x,'.'))} </imagename> 
+</datarow>
