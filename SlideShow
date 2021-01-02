@@ -1,11 +1,12 @@
 (* SlideShow from folder *)
 
-let $dir := file:list('C:\foldername\',false(), "*.jpg")
+let $path := 'c:\slideshow'
+let $dir := file:list($path, false(), "*.jpg, *.png")
 for $x in $dir
 order by $x ascending
 return 
 
 <datarow>
-<image> {data($x)} </image>
+<image> {concat($path, "\", data($x))} </image>
 <imagename> {data(substring-before($x,'.'))} </imagename> 
 </datarow>
