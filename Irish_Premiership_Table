@@ -1,0 +1,16 @@
+let $doc := html:parse(fetch:binary('https://www.bbc.com/sport/football/irish-premiership/table'))
+let $cells:=$doc//table[@class='gs-o-table']/tbody/tr
+for $cell in $cells
+return
+<datarow>
+<Rank>{data($cell/td[1])}</Rank>
+<Teamname>{data($cell/td[3])}</Teamname>
+<Played>{data($cell/td[4])}</Played>
+<Won>{data($cell/td[5])}</Won>
+<Drawn>{data($cell/td[6])}</Drawn>
+<Lost>{data($cell/td[7])}</Lost>
+<For>{data($cell/td[8])}</For>
+<Against>{data($cell/td[9])}</Against>
+<GD>{data($cell/td[10])}</GD>
+<Points>{data($cell/td[11])}</Points>
+</datarow>
