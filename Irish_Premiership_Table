@@ -1,3 +1,6 @@
+(: a simple xquery to pull Irish Premier League Table 2020-21 :)
+(: www.chrworks.com :)
+
 let $doc := html:parse(fetch:binary('https://www.bbc.com/sport/football/irish-premiership/table'))
 let $cells:=$doc//table[@class='gs-o-table']/tbody/tr
 for $cell in $cells
