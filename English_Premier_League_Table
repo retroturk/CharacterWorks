@@ -1,0 +1,20 @@
+let $doc := html:parse(fetch:binary('https://www.espn.com/soccer/standings/_/league/eng.1'))
+
+let $result := $doc//tbody[@class="Table__TBODY"]/tr
+
+for $x at $pos in (1 to 20)
+
+return <datarow>
+<rank>{data($pos)}</rank>
+<team>{data($result[$pos]//span[@class="hide-mobile"]/a)}</team>
+<logo> {concat('https://a.espncdn.com/i/teamlogos/soccer/500/',substring-after(data($result[$pos]//span[@class="hide-mobile"]/a/@data-clubhouse-uid),'t:'),'.png')}           </logo>
+<gp>{data($result[$pos+20]//span[@class="stat-cell"])[1]}</gp>
+<w>{data($result[$pos+20]//span[@class="stat-cell"])[2]}</w>
+<d>{data($result[$pos+20]//span[@class="stat-cell"])[3]}</d>
+<l>{data($result[$pos+20]//span[@class="stat-cell"])[4]}</l>
+<f>{data($result[$pos+20]//span[@class="stat-cell"])[5]}</f>
+<a>{data($result[$pos+20]//span[@class="stat-cell"])[6]}</a>
+<gd>{xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[5]) - xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[6])}
+</gd>
+<p>{data($result[$pos+20]//span[@class="stat-cell"])[7]}</p>
+</datarow>
