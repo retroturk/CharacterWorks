@@ -1,9 +1,9 @@
+(: a simple xquery to pull English Premier League Table 2020-21 :)
+(: www.chrworks.com :)
+
 let $doc := html:parse(fetch:binary('https://www.espn.com/soccer/standings/_/league/eng.1'))
-
 let $result := $doc//tbody[@class="Table__TBODY"]/tr
-
 for $x at $pos in (1 to 20)
-
 return <datarow>
 <rank>{data($pos)}</rank>
 <team>{data($result[$pos]//span[@class="hide-mobile"]/a)}</team>
@@ -14,7 +14,8 @@ return <datarow>
 <l>{data($result[$pos+20]//span[@class="stat-cell"])[4]}</l>
 <f>{data($result[$pos+20]//span[@class="stat-cell"])[5]}</f>
 <a>{data($result[$pos+20]//span[@class="stat-cell"])[6]}</a>
-<gd>{xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[5]) - xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[6])}
-</gd>
+{if (xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[5]) - 
+ xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[6]) > 0) then <gd>{concat('+',xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[5]) - xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[6]))}</gd> else <gd>{xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[5]) - xs:integer(data($result[$pos+20]//span[@class="stat-cell"])[6])}</gd>
+}
 <p>{data($result[$pos+20]//span[@class="stat-cell"])[7]}</p>
 </datarow>
