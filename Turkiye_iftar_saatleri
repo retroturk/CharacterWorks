@@ -1,0 +1,330 @@
+let $adana := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9146'))
+let $iadana :=$adana//div[@id='today-pray-times-row']/div[5]/div
+let $adiyaman := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9158'))
+let $iadiyaman:=$adiyaman//div[@id='today-pray-times-row']/div[5]/div
+let $afyon := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9167'))
+let $iafyon:=$afyon//div[@id='today-pray-times-row']/div[5]/div
+let $agri := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9185'))
+let $iagri:=$agri//div[@id='today-pray-times-row']/div[5]/div
+let $aksaray := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9193'))
+let $iaksaray:=$aksaray//div[@id='today-pray-times-row']/div[5]/div
+let $amasya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9198'))
+let $iamasya:=$amasya//div[@id='today-pray-times-row']/div[5]/div
+let $ankara := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9206'))
+let $iankara:=$ankara//div[@id='today-pray-times-row']/div[5]/div
+let $antalya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9225/'))
+let $iantalya:=$antalya//div[@id='today-pray-times-row']/div[5]/div
+let $ardahan := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9238'))
+let $iardahan :=$ardahan//div[@id='today-pray-times-row']/div[5]/div
+let $artvin := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9246'))
+let $iartvin :=$artvin//div[@id='today-pray-times-row']/div[5]/div
+let $aydin := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9252'))
+let $iaydin :=$aydin//div[@id='today-pray-times-row']/div[5]/div
+let $balikesir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9270'))
+let $ibalikesir :=$balikesir//div[@id='today-pray-times-row']/div[5]/div
+let $bartin := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9285'))
+let $ibartin :=$bartin//div[@id='today-pray-times-row']/div[5]/div
+let $batman := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9288'))
+let $ibatman :=$batman//div[@id='today-pray-times-row']/div[5]/div
+let $bayburt := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9295'))
+let $ibayburt :=$bayburt//div[@id='today-pray-times-row']/div[5]/div
+let $bilecik := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9297'))
+let $ibilecik :=$bilecik//div[@id='today-pray-times-row']/div[5]/div
+let $bingol := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9303'))
+let $ibingol :=$bingol//div[@id='today-pray-times-row']/div[5]/div
+let $bitlis := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9311'))
+let $ibitlis :=$bitlis//div[@id='today-pray-times-row']/div[5]/div
+let $bolu := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9315'))
+let $ibolu :=$bolu//div[@id='today-pray-times-row']/div[5]/div
+let $burdur := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9327'))
+let $iburdur :=$burdur//div[@id='today-pray-times-row']/div[5]/div
+let $bursa := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9335'))
+let $ibursa :=$bursa//div[@id='today-pray-times-row']/div[5]/div
+let $canakkale := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9352'))
+let $icanakkale :=$canakkale//div[@id='today-pray-times-row']/div[5]/div
+let $cankiri := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9359'))
+let $icankiri :=$cankiri//div[@id='today-pray-times-row']/div[5]/div
+let $corum := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9370'))
+let $icorum :=$corum//div[@id='today-pray-times-row']/div[5]/div
+let $denizli := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9392'))
+let $idenizli :=$denizli//div[@id='today-pray-times-row']/div[5]/div
+let $diyarbakir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9402'))
+let $idiyarbakir :=$diyarbakir//div[@id='today-pray-times-row']/div[5]/div
+let $duzce := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9414'))
+let $iduzce :=$duzce//div[@id='today-pray-times-row']/div[5]/div
+let $edirne := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9419'))
+let $iedirne :=$edirne//div[@id='today-pray-times-row']/div[5]/div
+let $elazig := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9432'))
+let $ielazig :=$elazig//div[@id='today-pray-times-row']/div[5]/div
+let $erzincan := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9440'))
+let $ierzincan :=$erzincan//div[@id='today-pray-times-row']/div[5]/div
+let $erzurum := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9451'))
+let $ierzurum :=$erzurum//div[@id='today-pray-times-row']/div[5]/div
+let $eskisehir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9470'))
+let $ieskisehir :=$eskisehir//div[@id='today-pray-times-row']/div[5]/div
+let $gaziantep := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9479'))
+let $igaziantep :=$gaziantep//div[@id='today-pray-times-row']/div[5]/div
+let $giresun := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9494'))
+let $igiresun :=$giresun//div[@id='today-pray-times-row']/div[5]/div
+let $gumushane := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9501'))
+let $igumushane :=$gumushane//div[@id='today-pray-times-row']/div[5]/div
+let $hakkari := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9507'))
+let $ihakkari :=$hakkari//div[@id='today-pray-times-row']/div[5]/div
+let $hatay := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/20089'))
+let $ihatay :=$hatay//div[@id='today-pray-times-row']/div[5]/div
+let $igdir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9522'))
+let $iigdir :=$igdir//div[@id='today-pray-times-row']/div[5]/div
+let $isparta := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9528'))
+let $iisparta :=$isparta//div[@id='today-pray-times-row']/div[5]/div
+let $istanbul := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9541'))
+let $iistanbul :=$istanbul//div[@id='today-pray-times-row']/div[5]/div
+let $izmir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9560'))
+let $iizmir :=$izmir//div[@id='today-pray-times-row']/div[5]/div
+let $kahramanmaras := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9577'))
+let $ikahramanmaras :=$kahramanmaras//div[@id='today-pray-times-row']/div[5]/div
+let $karabuk := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9581'))
+let $ikarabuk :=$karabuk//div[@id='today-pray-times-row']/div[5]/div
+let $karaman := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9587'))
+let $ikaraman :=$karaman//div[@id='today-pray-times-row']/div[5]/div
+let $kars := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9594'))
+let $ikars :=$kars//div[@id='today-pray-times-row']/div[5]/div
+let $kastamonu := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9609'))
+let $ikastamonu :=$kastamonu//div[@id='today-pray-times-row']/div[5]/div
+let $kayseri := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9620'))
+let $ikayseri :=$kayseri//div[@id='today-pray-times-row']/div[5]/div
+let $kilis := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9629'))
+let $ikilis :=$kilis//div[@id='today-pray-times-row']/div[5]/div
+let $kirikkale := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9635'))
+let $ikirikkale :=$kirikkale//div[@id='today-pray-times-row']/div[5]/div
+let $kirklareli := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9638'))
+let $ikirklareli :=$kirklareli//div[@id='today-pray-times-row']/div[5]/div
+let $kirsehir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9646'))
+let $ikirsehir :=$kirsehir//div[@id='today-pray-times-row']/div[5]/div
+let $kocaeli := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9654'))
+let $ikocaeli :=$kocaeli//div[@id='today-pray-times-row']/div[5]/div
+let $konya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9676'))
+let $ikonya :=$konya//div[@id='today-pray-times-row']/div[5]/div
+let $kutahya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9689'))
+let $ikutahya :=$kutahya//div[@id='today-pray-times-row']/div[5]/div
+let $malatya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9703'))
+let $imalatya :=$malatya//div[@id='today-pray-times-row']/div[5]/div
+let $manisa := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9716'))
+let $imanisa :=$manisa//div[@id='today-pray-times-row']/div[5]/div
+let $mardin := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9726'))
+let $imardin :=$mardin//div[@id='today-pray-times-row']/div[5]/div
+let $mersin := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9737'))
+let $imersin :=$mersin//div[@id='today-pray-times-row']/div[5]/div
+let $mugla := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9747'))
+let $imugla :=$mugla//div[@id='today-pray-times-row']/div[5]/div
+let $mus := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9755'))
+let $imus :=$mus//div[@id='today-pray-times-row']/div[5]/div
+let $nevsehir := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9760'))
+let $inevsehir :=$nevsehir//div[@id='today-pray-times-row']/div[5]/div
+let $nigde := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9766'))
+let $inigde :=$nigde//div[@id='today-pray-times-row']/div[5]/div
+let $ordu := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9782'))
+let $iordu :=$ordu//div[@id='today-pray-times-row']/div[5]/div
+let $osmaniye := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9788'))
+let $iosmaniye :=$osmaniye//div[@id='today-pray-times-row']/div[5]/div
+let $rize := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9799'))
+let $irize :=$rize//div[@id='today-pray-times-row']/div[5]/div
+let $sakarya := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9807'))
+let $isakarya :=$sakarya//div[@id='today-pray-times-row']/div[5]/div
+let $samsun := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9819'))
+let $isamsun :=$samsun//div[@id='today-pray-times-row']/div[5]/div
+let $urfa := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9831'))
+let $iurfa :=$urfa//div[@id='today-pray-times-row']/div[5]/div
+let $siirt := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9839'))
+let $isiirt :=$siirt//div[@id='today-pray-times-row']/div[5]/div
+let $sinop := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9847'))
+let $isinop :=$sinop//div[@id='today-pray-times-row']/div[5]/div
+let $sirnak := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9854'))
+let $isirnak :=$sirnak//div[@id='today-pray-times-row']/div[5]/div
+let $sinop := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9847'))
+let $isinop :=$sinop//div[@id='today-pray-times-row']/div[5]/div
+let $sivas := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9868'))
+let $isivas :=$sivas//div[@id='today-pray-times-row']/div[5]/div
+let $tekirdag := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9879'))
+let $itekirdag :=$tekirdag//div[@id='today-pray-times-row']/div[5]/div
+let $tokat := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9887'))
+let $itokat :=$tokat//div[@id='today-pray-times-row']/div[5]/div
+let $trabzon := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9905'))
+let $itrabzon :=$trabzon//div[@id='today-pray-times-row']/div[5]/div
+let $tunceli := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9914'))
+let $itunceli :=$tunceli//div[@id='today-pray-times-row']/div[5]/div
+let $usak := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9919'))
+let $iusak :=$usak//div[@id='today-pray-times-row']/div[5]/div
+let $van := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9930'))
+let $ivan :=$van//div[@id='today-pray-times-row']/div[5]/div
+let $yalova := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9935'))
+let $iyalova :=$yalova//div[@id='today-pray-times-row']/div[5]/div
+let $yozgat := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9949'))
+let $iyozgat :=$yozgat//div[@id='today-pray-times-row']/div[5]/div
+let $zonguldak := html:parse(fetch:binary('https://namazvakitleri.diyanet.gov.tr/tr-TR/9955'))
+let $izonguldak :=$zonguldak//div[@id='today-pray-times-row']/div[5]/div
+
+return
+
+<datarow>
+<city1>Hakkari</city1>
+<time1>{data($ihakkari/div[2])}</time1>
+<city2>Iğdır</city2>
+<time2>{data($iigdir/div[2])}</time2>
+<city3>Van</city3>
+<time3>{data($iigdir/div[2])}</time3>
+<city4>Ağrı</city4>
+<time4>{data($iagri/div[2])}</time4>
+<city5>Kars</city5>
+<time5>{data($ikars/div[2])}</time5>
+<city6>Şırnak</city6>
+<time6>{data($isirnak/div[2])}</time6>
+<city7>Ardahan</city7>
+<time7>{data($iardahan/div[2])}</time7>
+<city8>Bitlis</city8>
+<time8>{data($ibitlis/div[2])}</time8>
+<city9>Siirt</city9>
+<time9>{data($isiirt/div[2])}</time9>
+<city10>Artvin</city10>
+<time10>{data($iartvin/div[2])}</time10>
+<city11>Muş</city11>
+<time11>{data($imus/div[2])}</time11>
+<city12>Batman</city12>
+<time12>{data($ibatman/div[2])}</time12>
+<city13>Erzurum</city13>
+<time13>{data($ierzurum/div[2])}</time13>
+<city14>Mardin</city14>
+<time14>{data($imardin/div[2])}</time14>
+<city15>Bingöl</city15>
+<time15>{data($ibingol/div[2])}</time15>
+<city16>Diyarbakır</city16>
+<time16>{data($idiyarbakir/div[2])}</time16>
+<city17>Rize</city17>
+<time17>{data($irize/div[2])}</time17>
+<city18>Bayburt</city18>
+<time18>{data($ibayburt/div[2])}</time18>
+<city19>Tunceli</city19>
+<time19>{data($itunceli/div[2])}</time19>
+<city20>Trabzon</city20>
+<time20>{data($itrabzon/div[2])}</time20>
+<city21>Elazığ</city21>
+<time21>{data($ielazig/div[2])}</time21>
+<city22>Erzincan</city22>
+<time22>{data($ierzincan/div[2])}</time22>
+<city23>Gümüşhane</city23>
+<time23>{data($igumushane/div[2])}</time23>
+<city24>Şanlıurfa</city24>
+<time24>{data($iurfa/div[2])}</time24>
+<city25>Adıyaman</city25>
+<time25>{data($iadiyaman/div[2])}</time25>
+<city26>Malatya</city26>
+<time26>{data($imalatya/div[2])}</time26>
+<city27>Giresun</city27>
+<time27>{data($igiresun/div[2])}</time27>
+<city28>Gaziantep</city28>
+<time28>{data($igaziantep/div[2])}</time28>
+<city29>Kilis</city29>
+<time29>{data($ikilis/div[2])}</time29>
+<city30>Ordu</city30>
+<city31>Kahramanmaraş</city31>
+<time31>{data($ikahramanmaras/div[2])}</time31>
+<city32>Sivas</city32>
+<time32>{data($isivas/div[2])}</time32>
+<city33>Hatay</city33>
+<time33>{data($ihatay/div[2])}</time33>
+<city34>Osmaniye</city34>
+<time34>{data($iosmaniye/div[2])}</time34>
+<city35>Tokat</city35>
+<time35>{data($itokat/div[2])}</time35>
+<city36>Samsun</city36>
+<time36>{data($isamsun/div[2])}</time36>
+<city37>Adana</city37>
+<time37>{data($iadana/div[2])}</time37>
+<city38>Kayseri</city38>
+<time38>{data($ikayseri/div[2])}</time38>
+<city39>Amasya</city39>
+<time39>{data($iamasya/div[2])}</time39>
+<city40>Mersin</city40>
+<time40>{data($imersin/div[2])}</time40>
+<city41>Niğde</city41>
+<time41>{data($inigde/div[2])}</time41>
+<city42>Çorum</city42>
+<time42>{data($icorum/div[2])}</time42>
+<city43>Nevşehir</city43>
+<time43>{data($inevsehir/div[2])}</time43>
+<city44>Yozgat</city44>
+<time44>{data($iyozgat/div[2])}</time44>
+<city45>Sinop</city45>
+<time45>{data($isinop/div[2])}</time45>
+<city46>Aksaray</city46>
+<time46>{data($iaksaray/div[2])}</time46>
+<city47>Kırşehir</city47>
+<time47>{data($ikirsehir/div[2])}</time47>
+<city48>Karaman</city48>
+<time48>{data($ikaraman/div[2])}</time48>
+<city49>Kastamonu</city49>
+<time49>{data($ikastamonu/div[2])}</time49>
+<city50>Çankırı</city50>
+<time50>{data($icankiri/div[2])}</time50>
+<city51>Kırıkkale</city51>
+<time51>{data($ikirikkale/div[2])}</time51>
+<city52>Ankara</city52>
+<time52>{data($iankara/div[2])}</time52>
+<city53>Konya</city53>
+<time53>{data($ikonya/div[2])}</time53>
+<city54>Karabük</city54>
+<time54>{data($ikarabuk/div[2])}</time54>
+<city55>Bartın</city55>
+<time55>{data($ibartin/div[2])}</time55>
+<city56>Zonguldak</city56>
+<time56>{data($izonguldak/div[2])}</time56>
+<city57>Bolu</city57>
+<time57>{data($ibolu/div[2])}</time57>
+<city58>Antalya</city58>
+<time58>{data($iantalya/div[2])}</time58>
+<city59>Düzce</city59>
+<time59>{data($iduzce/div[2])}</time59>
+<city60>Isparta</city60>
+<time60>{data($iisparta/div[2])}</time60>
+<city61>Burdur</city61>
+<time61>{data($iburdur/div[2])}</time61>
+<city62>Eskişehir</city62>
+<time62>{data($ieskisehir/div[2])}</time62>
+<city63>Afyonkarahisar</city63>
+<time63>{data($iafyon/div[2])}</time63>
+<city64>Sakarya</city64>
+<time64>{data($isakarya/div[2])}</time64>
+<city65>Kütahya</city65>
+<time65>{data($ikutahya/div[2])}</time65>
+<city66>Bilecik</city66>
+<time66>{data($ibilecik/div[2])}</time66>
+<city67>Kocaeli</city67>
+<time67>{data($ikocaeli/div[2])}</time67>
+<city68>Uşak</city68>
+<time68>{data($iusak/div[2])}</time68>
+<city69>Denizli</city69>
+<time69>{data($idenizli/div[2])}</time69>
+<city70>Yalova</city70>
+<time70>{data($iyalova/div[2])}</time70>
+<city71>Bursa</city71>
+<time71>{data($ibursa/div[2])}</time71>
+<city72>Muğla</city72>
+<time72>{data($imugla/div[2])}</time72>
+<city73>İstanbul</city73>
+<time73>{data($iistanbul/div[2])}</time73>
+<city74>Aydın</city74>
+<time74>{data($iaydin/div[2])}</time74>
+<city75>Balıkesir</city75>
+<time75>{data($ibalikesir/div[2])}</time75>
+<city76>Manisa</city76>
+<time76>{data($imanisa/div[2])}</time76>
+<city77>İzmir</city77>
+<time77>{data($iizmir/div[2])}</time77>
+<city78>Tekirdağ</city78>
+<time78>{data($itekirdag/div[2])}</time78>
+<city79>Kırklareli</city79>
+<time79>{data($ikirklareli/div[2])}</time79>
+<city80>Çanakkale</city80>
+<time80>{data($icanakkale/div[2])}</time80>
+<city81>Edirne</city81>
+<time81>{data($iedirne/div[2])}</time81>
+</datarow>
