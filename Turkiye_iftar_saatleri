@@ -225,6 +225,7 @@ return
 <city29>Kilis</city29>
 <time29>{data($ikilis/div[2])}</time29>
 <city30>Ordu</city30>
+<time30>{data($iordu/div[2])}</time30>
 <city31>Kahramanmaraş</city31>
 <time31>{data($ikahramanmaras/div[2])}</time31>
 <city32>Sivas</city32>
