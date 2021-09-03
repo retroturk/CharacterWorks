@@ -1,0 +1,19 @@
+(: a simple xquery to pull Formula1 2021 Results from https://www.motorsport.com/ :)
+(: www.chrworks.com :)
+
+let $doc := html:parse(fetch:binary('https://www.motorsport.com/f1/results/2021/british-gp-483508/'))
+let $cells:=$doc//table[@class='ms-table ms-table--result']/tbody/tr
+for $cell in $cells
+return
+<datarow>
+<rank>{data($cell/td[1])}</rank>
+<no>{data($cell/td[3])}</no>
+<nationality>{data($cell/td[4]/a/img/@alt)}</nationality>
+<name>{data($cell/td[4])}</name>
+<car>{data($cell/td[5]/a/img/@src)}</car>
+<chasis>{data($cell/td[6])}</chasis>
+<engine>{data($cell/td[7])}</engine>
+<laps>{data($cell/td[8])}</laps>
+<time>{data($cell/td[9])}</time>
+<gap>{data($cell/td[10])}</gap>
+</datarow>
