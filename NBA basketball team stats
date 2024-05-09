@@ -1,46 +1,49 @@
 (: a simple xquery to pull NBA basketball team stats from ESPN web page :)
 
-let $team_name := "bos"
+let $team_name := "chi"
+let $logo:= concat("https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/",$team_name,".png")
 let $doc := html:parse(fetch:binary(concat("https://www.espn.com/nba/team/stats/_/name/",$team_name)))
-let $cellsname := $doc//tbody[@Class='Table__TBODY']/tr[@Class="Table__TR Table__TR--sm Table__even"]
+let $cellsname := $doc//tbody[@class='Table__TBODY']/tr[@class="Table__TR Table__TR--sm Table__even"]
 let $docpic := html:parse(fetch:binary(concat("https://www.espn.com/nba/team/roster/_/name/",$team_name)))
-let $cells := $docpic//tbody[@Class="Table__TBODY"]/tr[@Class='Table__TR Table__TR--lg Table__even']
+let $cells := $docpic//tbody[@class="Table__TBODY"]/tr[@class='Table__TR Table__TR--lg Table__even']
 for $cell at $pos in (1 to xs:integer((count($cellsname) div 4) - 1))
 for $y in $cells
 let $number := xs:integer((count($cellsname) div 4))
 where $cellsname[$pos]/td/span/a/text() = $y/td//img/@title
-return
-
-{data($y/td/div/span[@Class='pl2 n10'])}
-{data($cellsname[$pos]/td/span/a/text())}
-{substring-before(data($cellsname[$pos]/td/span/a/text()), ' ')}
-{substring-after(data($cellsname[$pos]/td/span/a/text()), ' ')}
-{data($cellsname[$pos]/td/span/span)}
-{data($cellsname[$pos+$number]/td[1]/span) }
-{data($cellsname[$pos+$number]/td[2]/span)}
-{data($cellsname[$pos+$number]/td[3]/span)}
-{data($cellsname[$pos+$number]/td[4]/span)}
-{data($cellsname[$pos+$number]/td[5]/span)}
-{data($cellsname[$pos+$number]/td[6]/span)}
-{data($cellsname[$pos+$number]/td[7]/span)}
-{data($cellsname[$pos+$number]/td[8]/span)}
-{data($cellsname[$pos+$number]/td[9]/span)}
-{data($cellsname[$pos+$number]/td[10]/span)}
-{data($cellsname[$pos+$number]/td[11]/span)}
-{data($cellsname[$pos+$number]/td[12]/span)}
+return <datarow>
+<teamlogo>{data($logo)}</teamlogo>
+<picture>{data($y/td//img/@alt)}</picture>
+<number>{data($y/td/div/span[@class='pl2 n10'])}</number>
+<fullname>{data($cellsname[$pos]/td/span/a/text())}</fullname>
+<name>{substring-before(data($cellsname[$pos]/td/span/a/text()), ' ')}</name>
+<surname>{substring-after(data($cellsname[$pos]/td/span/a/text()), ' ')}</surname>
+<position>{data($cellsname[$pos]/td/span/span)}</position>
+<GP>{data($cellsname[$pos+$number]/td[1]/span) }</GP>
+<GS>{data($cellsname[$pos+$number]/td[2]/span)}</GS>
+<MIN>{data($cellsname[$pos+$number]/td[3]/span)}</MIN>
+<PTS>{data($cellsname[$pos+$number]/td[4]/span)}</PTS>
+<OR>{data($cellsname[$pos+$number]/td[5]/span)}</OR>
+<DR>{data($cellsname[$pos+$number]/td[6]/span)}</DR>
+<REB>{data($cellsname[$pos+$number]/td[7]/span)}</REB>
+<AST>{data($cellsname[$pos+$number]/td[8]/span)}</AST>
+<STL>{data($cellsname[$pos+$number]/td[9]/span)}</STL>
+<BLK>{data($cellsname[$pos+$number]/td[10]/span)}</BLK>
+<TO>{data($cellsname[$pos+$number]/td[11]/span)}</TO>
+<PF>{data($cellsname[$pos+$number]/td[12]/span)}</PF>
 <AST_TO>{data($cellsname[$pos+$number]/td[13]/span)}</AST_TO>
 <Shooting_Stats> </Shooting_Stats>
-{data($cellsname[$pos+($number3)]/td[1]/span) }
-{data($cellsname[$pos+($number3)]/td[2]/span) }
-<FG_per>{data($cellsname[$pos+($number3)]/td[3]/span) } </FG_per>
-<_3PM>{data($cellsname[$pos+($number3)]/td[4]/span) } </_3PM>
-<_3PA>{data($cellsname[$pos+($number3)]/td[5]/span) } </_3PA>
-<_3P_per>{data($cellsname[$pos+($number3)]/td[6]/span) } </_3P_per>
-{data($cellsname[$pos+($number3)]/td[7]/span) }
-{data($cellsname[$pos+($number3)]/td[8]/span) }
-<FT_per> {data($cellsname[$pos+($number3)]/td[9]/span) } </FT_per>
-<_2PM> {data($cellsname[$pos+($number3)]/td[10]/span) } </_2PM>
-<_2PA> {data($cellsname[$pos+($number3)]/td[11]/span) } </_2PA>
-<_2P_per> {data($cellsname[$pos+($number3)]/td[12]/span) } </_2P_per>
-{data($cellsname[$pos+($number3)]/td[13]/span) }
-<SH_EFF> {data($cellsname[$pos+($number3)]/td[14]/span) } </SH_EFF>
+<FGM>{data($cellsname[$pos+($number*3)]/td[1]/span) } </FGM>
+<FGA>{data($cellsname[$pos+($number*3)]/td[2]/span) } </FGA>
+<FG_per>{data($cellsname[$pos+($number*3)]/td[3]/span) } </FG_per>
+<_3PM>{data($cellsname[$pos+($number*3)]/td[4]/span) } </_3PM>
+<_3PA>{data($cellsname[$pos+($number*3)]/td[5]/span) } </_3PA>
+<_3P_per>{data($cellsname[$pos+($number*3)]/td[6]/span) } </_3P_per>
+<FTM> {data($cellsname[$pos+($number*3)]/td[7]/span) } </FTM>
+<FTA>{data($cellsname[$pos+($number*3)]/td[8]/span) } </FTA>
+<FT_per> {data($cellsname[$pos+($number*3)]/td[9]/span) } </FT_per>
+<_2PM> {data($cellsname[$pos+($number*3)]/td[10]/span) } </_2PM>
+<_2PA> {data($cellsname[$pos+($number*3)]/td[11]/span) } </_2PA>
+<_2P_per> {data($cellsname[$pos+($number*3)]/td[12]/span) } </_2P_per>
+<SC-EFF> {data($cellsname[$pos+($number*3)]/td[13]/span) } </SC-EFF>
+<SH_EFF> {data($cellsname[$pos+($number*3)]/td[14]/span) } </SH_EFF>
+</datarow>
