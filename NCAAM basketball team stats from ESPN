@@ -1,7 +1,7 @@
 (: a simple xquery to pull NCAAM basketball team stats from ESPN web page :)
 
 let $team_id := "97"
-
+let $logo:= concat("https://a.espncdn.com/i/teamlogos/ncaa/500/",$team_id,".png")
 let $doc := html:parse(fetch:binary(concat("https://www.espn.com/mens-college-basketball/team/stats/_/id/",$team_id)))
 let $cellsname := $doc//tbody[@class='Table__TBODY']/tr[@class="Table__TR Table__TR--sm Table__even"]
 let $docpic := html:parse(fetch:binary(concat("https://www.espn.com/mens-college-basketball/team/roster/_/id/",$team_id)))
@@ -12,6 +12,7 @@ for $y in $cells
 let $number := xs:integer((count($cellsname) div 4))
 where $cellsname[$pos]/td/span/a/text() = $y/td//img/@title
 return <datarow>
+<teamlogo>{data($logo)}</teamlogo>
 <picture>{data($y/td//img/@alt)}</picture>
 <number>{data($y/td/div/span[@class='pl2 n10'])}</number>
 <fullname>{data($cellsname[$pos]/td/span/a/text())}</fullname>
