@@ -1,0 +1,35 @@
+(: a simple xquery to pull Formula1 2023 Standings from www.formula1.com :)
+(: www.chrworks.com :)
+
+let $doc := html:parse(fetch:binary('https://www.formula1.com/en/results/2024/drivers'))
+let $cells:=$doc//table[@class='f1-table f1-table-with-data w-full']/tbody/tr
+for $cell at $pos in $cells
+where $pos<11
+return
+<datarow>
+<position>{data($cell/td[1])}</position>
+<name>{data($cell/td[2]/p/a/span[1])}</name>
+<surname>{data($cell/td[2]/p/a/span[2])}</surname>
+<photo>{data($cell/td[2]/p/a/span[1])}{" "}{data($cell/td[2]/p/a/span[2])}.png</photo>
+<flag>{switch(data($cell/td[3]))
+case "NED" return "Netherlands"
+case "MEX" return "Mexico"
+case "ESP" return "Spain"
+case "MON" return "Monaco"
+case "CAN" return "Canada"
+case "FRA" return "France"
+case "USA" return "US"
+case "GBR" return "UK"
+case "AUS" return "Australia"
+case "THA" return "Thailand"
+case "GER" return "Germany"
+case "FIN" return "Finland"
+case "CHN" return "China"
+case "JPN" return "Japan"
+case "DEN" return "Denmark"
+case "NZL" return "New Zealand"
+default return data(data($cell/td[3]))}.jpg</flag>
+<nationality>{data($cell/td[3])}</nationality>
+<car>{data($cell/td[4])}</car>
+<points>{data($cell/td[5])}</points>
+</datarow>
