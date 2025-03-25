@@ -1,19 +1,28 @@
-(: a simple xquery to pull Formula1 2021 Results from https://www.motorsport.com/ :)
+(: a simple xquery to pull Formula1 2025 Results from https://www.motorsport.com/ :)
 (: www.chrworks.com :)
 
-let $doc := html:parse(fetch:binary('https://www.motorsport.com/f1/results/2021/british-gp-483508/'))
+let $doc := html:parse(fetch:binary('https://www.motorsport.com/f1/results/2025/chinese-gp-652993/'))
 let $cells:=$doc//table[@class='ms-table ms-table--result']/tbody/tr
 for $cell in $cells
 return
 <datarow>
 <rank>{data($cell/td[1])}</rank>
 <no>{data($cell/td[3])}</no>
-<nationality>{data($cell/td[4]/a/img/@alt)}</nationality>
-<name>{data($cell/td[4])}</name>
-<car>{data($cell/td[5]/a/img/@src)}</car>
-<chasis>{data($cell/td[6])}</chasis>
-<engine>{data($cell/td[7])}</engine>
-<laps>{data($cell/td[8])}</laps>
-<time>{data($cell/td[9])}</time>
-<gap>{data($cell/td[10])}</gap>
+<flag>{switch($cell/td[2]/a/img/@alt)
+case "Russian Federation" return "Russia"
+case "United Kingdom" return "UK"
+case "Brazil" return "brasil"
+default return data($cell/td[2]/a/img/@alt)}.jpg</flag>
+<name>{data($cell/td[2]/a/span/span[1])}</name>
+<team>{data($cell/td[2]/a/span/span[2])}</team>
+<car>{data($cell/td[4]/a/img/@src)}</car>
+<hirescar>{replace(data($cell/td[4]/a/img/@src),'s3', 's1')}</hirescar>
+<laps>{data($cell/td[5])}</laps>
+<time>{data($cell/td[6]/div/p[2])}</time>
+<interval>{data($cell/td[7])}</interval>
+<kmh>{data($cell/td[8])}</kmh>
+<pits>{data($cell/td[9])}</pits>
+<points>{data($cell/td[10])}</points>
+<headline>{data($doc//h1)}</headline>
+<web_source>https://www.motorsport.com/</web_source>
 </datarow>
