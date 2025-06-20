@@ -1,0 +1,17 @@
+(: Most 20 Active Stocks by Yahoo Finance :)
+let $doc := http:send-request(
+<http:request method="get" href="https://finance.yahoo.com/most-active">
+<http:header name="User-Agent" value="Mozilla/5.0"/>
+</http:request>
+)
+let $cells := $doc//table/tbody/tr
+for $cell at $pos in $cells
+where $pos <21
+return
+<datarow>
+<symbol>{data($cell/td[1])}</symbol>
+<name>{data($cell/td[2])}</name>
+<price>{data($cell/td[4]/div/fin-streamer)}</price>
+<changes>{data($cell/td[5])}</changes>
+<perchanges>{substring-before(data($cell/td[6]),'%')}</perchanges>
+</datarow>
