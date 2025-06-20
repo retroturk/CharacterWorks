@@ -6,14 +6,15 @@ let $doc := http:send-request(
 )
 let $cells := $doc//table/tbody/tr
 for $cell at $pos in $cells
-where $pos <42
+where $pos <43
 return
 <datarow>
 <asset>{data($cell/td[1])}</asset>
 <value>{data($cell/td[3]/div/fin-streamer)}</value>
-<per_change>{substring-before(data($cell/td[4]/span/fin-streamer),'%')}</per_change>
+<per_changefull>{data($cell/td[4]/fin-streamer/@data-value)}</per_changefull>
+<per_change>{substring-before(data($cell/td[4]/fin-streamer),'%')}</per_change>
 <sign>
-{switch(normalize-space($cell/td[4]/span/fin-streamer/span/@class))
+{switch(normalize-space($cell/td[4]/fin-streamer/span/@class))
 case "txt-positive" return "▲"
 case "txt-negative" return "▼"
 default return "▪"}
